@@ -10,7 +10,7 @@ object Requirement2{
     val regionSalesDF=salesDF.groupBy("Region").agg(sum("Units Sold").as("Total_unit_sold"))
     //show the regionSalesDF in console
     regionSalesDF.show()
-    regionSalesDF.write.parquet("C:/Users/gomall/Desktop/2.parquet")
+    regionSalesDF.write.partitionBy("Region").parquet("C:/Users/gomall/Desktop/2.parquet")
     spark.stop()
 
 
